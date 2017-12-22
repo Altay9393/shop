@@ -15,16 +15,17 @@ public class ThingsManagerBean {
     @PersistenceContext(unitName = "examplePU")
     private EntityManager entityManager;
 
-    public Thing createThing(String name, int price){
+    public Thing createThing(String name, int quantity){
         Thing thing = new Thing();
         thing.setName(name);
-        thing.setPrice(price);
+        thing.setQuantity(quantity);
         entityManager.persist(thing);
 
         return thing;
     }
 
     public List<Thing> getThings(){
-       return null;
+       TypedQuery query = entityManager.createQuery("select c from Thing ", Thing.class);
+       return query.getResultList();
     }
 }

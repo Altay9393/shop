@@ -12,9 +12,9 @@ public class Thing {
 
     private String name;
 
-    private int price;
+    private int quantity;
 
-    @OneToMany
+    @OneToMany(mappedBy = "thing")
     private List<ThingInOrder> thingInOrders;
 
 
@@ -34,12 +34,12 @@ public class Thing {
         this.name = name;
     }
 
-    public int getPrice() {
-        return price;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public List<ThingInOrder> getThingInOrders() {

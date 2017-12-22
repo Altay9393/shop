@@ -10,7 +10,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<ThingInOrder> thingInOrders;
 
     public long getId() {
